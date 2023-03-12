@@ -1,18 +1,21 @@
 package springboot.authentication.service.impl;
 
-import springboot.authentication.entity.Member;
-import springboot.authentication.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
+import springboot.authentication.dao.MemberDao;
+import springboot.authentication.entity.MemberAccount;
+import springboot.authentication.service.MemberAccountService;
 
-public class MemberServiceImpl implements MemberService {
+public class MemberAccountServiceImpl implements MemberAccountService {
 
+    @Autowired
     private MemberDao memberDao;
     @Override
-    public Integer insert(Member member){
-        return memberDao.insert(member);
+    public Integer insert(MemberAccount memberAccount){
+        return memberDao.insert(memberAccount);
     }
 
     @Override
-    public Member findMemberByMaId(String maId){
+    public MemberAccount findMemberByMaId(String maId){
         return memberDao.findMemberByMaId(maId);
     }
 
