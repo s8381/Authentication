@@ -10,7 +10,6 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import springboot.authentication.dao.MemberDao;
 import springboot.authentication.entity.Member;
-import springboot.authentication.entity.MemberAccount;
 
 import java.util.List;
 
@@ -33,7 +32,7 @@ public class MemberDaoImpl implements MemberDao {
                 + " :createdBy, NOW(), :updateBy, NOW() "
                 + " ) ";
 
-        SqlParameterSource parameterSource = new BeanPropertySqlParameterSource(memberAccount);
+        SqlParameterSource parameterSource = new BeanPropertySqlParameterSource(member);
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
         jdbcNameTemplate.update(sql, parameterSource, keyHolder);
